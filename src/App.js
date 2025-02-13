@@ -32,18 +32,60 @@ function App() {
         </div>
       </section>
 
-      <div> nosotros
-        <text></text>
-        <div>galeria de imagenes</div>
-      </div>
+      <section id='nosotros'> 
+        <h1>nosotros</h1>
+        <p>Un copy cercano como hablandole a un amigo. Lorem ipsum dolor sit amet, consectetuer
+          adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+          aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
+          iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+          feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
+          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        </p>
+        <div id='galeria'>
+          <img src='/img/nosotros_1.png' alt='nosotros 1'/>
+          <img src='/img/nosotros_2.png' alt='nosotros 2'/>
+          <img src='/img/nosotros_3.png' alt='nosotros 3'/>
+          <img src='/img/nosotros_4.png' alt='nosotros 4'/>
+        </div>
+      </section>
 
       <hr></hr>
 
-      <div> Experiencias Grupales
-        <img alt="img"></img>
-        <img alt="img"></img>
-        <img alt="img"></img>
-      </div>
+      <section class="experiencias">
+        <h1>Experiencias Grupales</h1>
+        <div class="carousel">
+          <button class="prev">&#10094;</button>
+          <div class="cards">
+            <div class="card">
+              <img src="/img/exp_grupales_1.png" alt="Safari"></img>
+              <span class="tag gold">¡Últimos cupos!</span>
+              <h2>Safari (África)</h2>
+              <p>5 al 15 de abril | Desde 5,500 USD</p>
+              <p>Serengeti, viaje en globo, hotel todo incluido 4 estrellas. Vive la experiencia de conocer a los reyes de la sabana africana.</p>
+              <button><a href='*'>Más Información</a></button>
+            </div>
+            <div class="card">
+              <img src="/img/exp_grupales_2.png" alt="Japón"></img>
+              <span class="tag red">Agotado</span>
+              <h2>Japón: Tradición y Modernidad</h2>
+              <p>30/04 - 11/05 | Desde 2,700 USD</p>
+              <p>Tokio, Monte Fuji y Kamakura. Conoce la cultura que combina la tradición y la tecnología.</p>
+              <button><a href='*'>Más Información</a></button>
+            </div>
+            <div class="card">
+              <img src="/img/exp_grupales_3.png" alt="Egipto"></img>
+              <span class="tag green">Cupos Disponibles</span>
+              <h2>Egipto: Místico y Majestuoso</h2>
+              <p>01 al 08 de abril | Desde 4,200 USD</p>
+              <p>El Cairo, Pirámides, Valle de los Muertos y viaje por el Nilo. Descubre una de las civilizaciones más antiguas del mundo.</p>
+              <button><a href='*'>Más Información</a></button>
+            </div>
+          </div>
+          <button class="next">&#10095;</button>
+        </div>
+      </section>
+
       <div> Expreriencias Personalizadas
         <img alt="img"></img>
         <span>
