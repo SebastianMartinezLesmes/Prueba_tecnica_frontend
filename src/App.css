@@ -76,6 +76,7 @@ header div a:hover {
 }
 #header p {
   font-size: 2rem;
+  letter-spacing: 2px;
   color: orange;
   text-align: center;
   position: relative;
@@ -100,3 +101,147 @@ header div a:hover {
 #header div span:hover {
   transform: scale(1.2);
 }
+
+/* nosotros */
+#nosotros {
+  text-align: center;
+  padding: 50px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+#nosotros h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: orange;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+#nosotros p {
+  font-size: 1.6rem;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+#galeria {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto; 
+  padding: 10px;
+  img {
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+/* Experiencias grupales */
+.experiencias {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+}
+.experiencias h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: orange;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-top: 3%;
+  margin-bottom: 5%;
+}
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.carousel button {
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: orange;
+  transition: 0.3s;
+}
+.carousel button:hover {
+  color: #42270c;
+}
+
+/* Contenedor de tarjetas */
+.cards {
+  gap: 65px;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  max-width: 330px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen dentro de la tarjeta */
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Etiquetas de estado */
+.tag {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+.gold { background: #d4af37; }
+.red { background: #c0392b; }
+.green { background: #27ae60; }
+
+/* Texto de la tarjeta */
+.card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0 15px;
+}
+
+/* Botón */
+.card button {
+  background: #a97c3a;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s;
+  a{
+    color: white;
+  }
+}
+
+.card button:hover {
+  background: #ee8f31;
+}
+
+/* Experiencias personalizadas */
+/* Blogs */
+/* Diseña tu viaje */
+/* Alianzas estrategicas */
+/* footer */
