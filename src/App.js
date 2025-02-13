@@ -125,52 +125,70 @@ function App() {
         </div>
       </section>
 
-      <section class="p-10 bg-gray-100">
-        <h2 class="text-3xl font-bold text-center text-yellow-600">DISEÑA TU VIAJE</h2>
-        <p class="text-center font-semibold mt-2">AQUÍ COMIENZA TU EXPERIENCIA</p>
-        <p class="text-center text-gray-600 mb-6">
-          Una vez llenado este formulario, uno de nuestros planners travelers se pondrá en contacto contigo para perfeccionar ese viaje que tanto has soñado.
-        </p>
-        
-        <form class="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
-          <div class="grid grid-cols-2 gap-4">
-            <select class="w-full p-2 border rounded-md">
-              <option>¿CUÁL ES EL DESTINO QUE QUIERES VISITAR?</option>
-            </select>
-            <input type="text" placeholder="¿QUÉ OTRO DESTINO TIENES EN MENTE?" class="w-full p-2 border rounded-md" />
+      <section class="formulario">
+        <h2>DISEÑA TU VIAJE</h2>
+        <h3>AQUÍ COMIENZA TU EXPERIENCIA</h3>
+        <p>Una vez llenado este formulario, uno de nuestros planners travelers se pondrá en contacto contigo para perfeccionar ese viaje que tanto has soñado. Estamos aquí para brindarte la mejor experiencia.</p>
+    
+        <form class="form-container">
+          <div class='group-inputs'>
+            <div class="input-group">
+              <label>¿CUÁL ES EL DESTINO QUE QUIERES VISITAR?</label>
+              <select>
+                <option>Selecciona un destino</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>¿QUÉ OTRO DESTINO TIENES EN MENTE?</label>
+              <select>
+                <option>Selecciona un destino</option>
+              </select>
+            </div>
           </div>
 
-          <p class="mt-4 font-semibold">¿QUÉ EXPERIENCIAS QUIERES VIVIR?</p>
-          <div class="grid grid-cols-3 gap-2 mt-2">
-            <button type="button" class="border rounded-md py-2">SAFARI</button>
-            <button type="button" class="border rounded-md py-2">DEPORTE</button>
-            <button type="button" class="border rounded-md py-2">ARTE Y CULTURA</button>
-            <button type="button" class="border rounded-md py-2">DESCANSO</button>
-            <button type="button" class="border rounded-md py-2">ESPIRITUAL</button>
-            <button type="button" class="border rounded-md py-2">PLAYA</button>
-            <button type="button" class="border rounded-md py-2 col-span-3">NATURALEZA</button>
+          <div class="experiencias">
+            <label>¿QUÉ EXPERIENCIAS QUIERES VIVIR?</label>
+            <div class="experiencia-buttons">
+              <button type="button">SAFARI</button>
+              <button type="button">DEPORTE</button>
+              <button type="button">ARTE Y CULTURA</button>
+              <button type="button">DESCANSO</button>
+              <button type="button">ESPIRITUAL</button>
+              <button type="button">PLAYA</button>
+              <button type="button">NATURALEZA</button>
+            </div>
           </div>
 
-          <p class="mt-4 font-semibold">¿SABES CUÁNDO VIAJAR?</p>
-          <div class="flex items-center mt-2 space-x-4">
-            <label><input type="radio" name="fecha" class="mr-1"></input> Sí</label>
-            <label><input type="radio" name="fecha" class="mr-1"></input> No</label>
-            <input type="date" class="p-2 border rounded-md" />
-            <input type="date" class="p-2 border rounded-md" />
+          <div class="viaje-info">
+            <label>¿SABES CUÁNDO VIAJAR?</label>
+            <div class="viaje-opciones">
+            <label>
+              <input type="radio" name="p1" id='p1'/> SÍ
+              <input type="radio" name="p1" id='p2'/> NO
+            </label>
+            </div>
+            <label> IDA
+              <input type="date" placeholder="IDA"/>
+            </label>
+            <label> REGRESO
+              <input type="date" placeholder="REGRESO"/>
+            </label>
           </div>
 
-          <div class="grid grid-cols-2 gap-4 mt-4">
-            <select class="w-full p-2 border rounded-md">
-              <option>NIÑOS</option>
-            </select>
-            <select class="w-full p-2 border rounded-md">
-              <option>ADULTOS</option>
-            </select>
+          <div class="pasajeros">
+            <label>NIÑOS:</label>
+            <select><option>0</option></select>
+            <label>ADULTOS:</label>
+            <select><option>1</option></select>
           </div>
 
-          <textarea placeholder="TU VIAJE IDEAL..." class="w-full p-2 border rounded-md mt-4"></textarea>
+          <div class="textarea-group">
+            <label>TU VIAJE IDEAL...</label>
+            <textarea placeholder="Describe tu viaje ideal"></textarea>
+          </div>
 
-          <button class="w-full bg-yellow-600 text-white px-4 py-2 rounded-lg mt-4">ENVIAR</button>
+          <button type="submit" class="btn-enviar">ENVIAR</button>
         </form>
       </section>
 
