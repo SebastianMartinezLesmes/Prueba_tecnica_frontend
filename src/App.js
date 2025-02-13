@@ -50,7 +50,7 @@ function App() {
         </div>
       </section>
 
-      <hr></hr>
+      <div id='line'></div>
 
       <section class="experiencias">
         <h1>Experiencias Grupales</h1>
@@ -86,33 +86,44 @@ function App() {
         </div>
       </section>
 
-      <div> Expreriencias Personalizadas
-        <img alt="img"></img>
-        <span>
-          titulo
-          texto
-          <button>cotizar mi viaje</button>
-        </span>
-      </div>
+      <section class="experiencias-personalizadas">
+        <h1>EXPERIENCIAS PERSONALIZADAS</h1>
+        <div class="contenedor">
+          <img src="/img/exp_personalizadas.png" alt="Experiencia personalizada"/>
+          <div class="info">
+            <h2>¿QUÉ NOS HACE DIFERENTES?</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh 
+              euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad 
+              minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut 
+              aliquip ex ea commodo consequat.
+            </p>
+            <button>COTIZAR MI VIAJE</button>
+          </div>
+        </div>
+      </section>
 
-      <div> Blogs
-        <div> 1
-          <img alt='img'></img>
-          titulo
-          texto
-          <a href=''>leer mas</a>
+      <section class="blogs">
+        <h2>BLOGS</h2>
+        <div class="blogs-container">
+          <div class="blog-item large">
+            <img src="/img/exp_personalizadas.png" alt="Imagen Blog 1"/>
+            <h3>DESTINOS PARA PAREJAS EN 2025</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam...</p>
+            <a href="#">LEER MÁS</a>
+          </div>
+          <div class="blog-item">
+            <img src="/img/blogs_2.png" alt="Imagen Blog 2"/>
+            <h3>VUELVE LA VISA PARA VIAJAR A LONDRES</h3>
+            <a href="#">LEER MÁS</a>
+          </div>
+          <div class="blog-item">
+            <img src="/img/blogs_3.png" alt="Imagen Blog 3"/>
+            <h3>TOP 3 DESTINOS EN COLOMBIA</h3>
+            <a href="#">LEER MÁS</a>
+          </div>
         </div>
-        <div> 2
-          <img alt='img'></img>
-          titulo
-          <a href=''>leer mas</a>
-        </div>
-        <div> 3
-          <img alt='img'></img>
-          titulo
-          <a href=''>leer mas</a>
-        </div>
-      </div>
+      </section>
 
       <section class="p-10 bg-gray-100">
         <h2 class="text-3xl font-bold text-center text-yellow-600">DISEÑA TU VIAJE</h2>
