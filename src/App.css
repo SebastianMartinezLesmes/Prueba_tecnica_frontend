@@ -1,6 +1,4 @@
 /* Estilos generales */
-/* color: #b88340; Color dorado */
-
 * {
   margin: 0;
   padding: 0;
@@ -64,7 +62,7 @@ header div a {
   transition: color 0.3s;
 }
 header div a:hover {
-  color: orange;
+  color: #b88340;;
 }
 #header h1 {
   font-size: 4rem;
@@ -79,7 +77,7 @@ header div a:hover {
 #header p {
   font-size: 2rem;
   letter-spacing: 2px;
-  color: orange;
+  color: #b88340;;
   text-align: center;
   position: relative;
   z-index: 2; 
@@ -113,7 +111,7 @@ header div a:hover {
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: orange;
+    color: #b88340;;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
@@ -141,7 +139,7 @@ header div a:hover {
 #line{
   width: 78%;
   height: 3px;
-  background-color: orange;
+  background-color: #b88340;;
   margin: auto; /* Centrado horizontal */
 }
 
@@ -155,7 +153,7 @@ header div a:hover {
 .experiencias h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: orange;
+  color: #b88340;;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding-top: 3%;
@@ -170,7 +168,7 @@ header div a:hover {
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  color: orange;
+  color: #b88340;;
   transition: 0.3s;
 }
 .carousel button:hover {
@@ -243,7 +241,7 @@ header div a:hover {
   padding: 40px 10%;
   h1 {
     font-size: 2rem;
-    color: orange;
+    color: #b88340;;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -272,7 +270,7 @@ header div a:hover {
     margin: 10% 0%;
   }
   button {
-    background-color: orange;
+    background-color: #b88340;;
     color: white;
     font-size: 1.4rem;
     font-weight: bold;
