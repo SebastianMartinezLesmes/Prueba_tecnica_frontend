@@ -147,7 +147,7 @@ function App() {
             </div>
           </div>
 
-          <div class="experiencias">
+          <div class="experiencias_2">
             <label>¿QUÉ EXPERIENCIAS QUIERES VIVIR?</label>
             <div class="experiencia-buttons">
               <button type="button">SAFARI</button>
@@ -192,45 +192,69 @@ function App() {
         </form>
       </section>
 
-      <div> Alianzas estrategicas
-        Lista de imagenes de Alianzas
+      <div class="alianzas-container">
+        <h2>ALIANZAS ESTRATÉGICAS</h2>
+        <div class="alianzas-logos">
+          <img src="/img/logo7.png" alt="Avianca"/>
+          <img src="/img/logo6.png" alt="Expedia"/>
+          <img src="/img/logo5.png" alt="Uber"/>
+          <img src="/img/logo4.png" alt="LifeMiles"/>
+          <img src="/img/logo3.png" alt="Bancolombia"/>
+          <img src="/img/logo1.png" alt="RIU"/>
+          <img src="/img/logo2.png" alt="Royal Caribbean"/>
+        </div>
+        <div class="whatsapp-icon">
+          <img src="/img/logo_WA.png" alt="WhatsApp"/>
+        </div>
       </div>
 
-      <section class="bg-gray-900 text-white p-6 text-center">
-        <p class="mb-4">Suscríbete a nuestro newsletter y recibe noticias, descuentos y más</p>
-        <div class="flex justify-center">
-          <input type="email" placeholder="Correo electrónico" class="p-2 rounded-l-md border border-gray-300 text-black w-80" />
-          <button class="bg-yellow-600 text-white px-4 py-2 rounded-r-md font-semibold">SUSCRIBIRME</button>
+      <section class="newsletter-container">
+        <p>Suscríbete a nuestro newsletter y recibe noticias, descuentos y más</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Correo electrónico" />
+          <button>SUSCRIBIRME</button>
         </div>
       </section>
 
-      <footer className="bg-white text-gray-800 p-6 flex justify-between items-center border-t">
-        <div>
-          <img src="/logo.svg" alt="Logo" className="h-12" />
-          <div className="flex space-x-4 mt-4">
-            <a href="#" className="text-gray-600 text-xl">🔵</a>
-            <a href="#" className="text-gray-600 text-xl">⚫</a>
-            <a href="#" className="text-gray-600 text-xl">🔴</a>
-            <a href="#" className="text-gray-600 text-xl">⚪</a>
-          </div>
+      <footer className="footer">
+        <div className="footer_logos">
+          <img src="/img/logo.png" alt="All In Travels" />
+          <img src="/img/logos_redes.png" alt="Facebook" className="redes" />
         </div>
-        <div className="text-sm">
+
+        <div>
           <ul>
-            <li><a href="#" className="hover:text-blue-500">Inicio</a></li>
-            <li><a href="#" className="hover:text-blue-500">¿Quiénes somos?</a></li>
-            <li><a href="#" className="hover:text-blue-500">Viajes grupales</a></li>
-            <li><a href="#" className="hover:text-blue-500">Viajes a la medida</a></li>
-            <li><a href="#" className="hover:text-blue-500">Contacto</a></li>
-            <li><a href="#" className="hover:text-blue-500">Términos y condiciones</a></li>
-            <li><a href="#" className="hover:text-blue-500">Política de privacidad</a></li>
+            <ol>Inicio</ol>
+            <ol>¿Quiénes somos?</ol>
+            <ol>Viajes grupale</ol>
+            <ol>Viajes a la medid</ol>
+            <ol>Contáctanos</ol>
+            <ol>Alianzas estratégicas</ol>
+            <ol>Blogs</ol>
+            <ol>Términos y condiciones</ol>
+            <ol>Política de privacidad</ol>
+            <ol>Registro Nacional de Turismo</ol>
           </ul>
         </div>
-        <div className="text-sm">
-          <p>✉ info@alntravels.com</p>
-          <p>📞 +57 (604) 444 44 88</p>
-          <p>📍 Carrera 43A # 18 Sur - 135 Of 854, Medellín - Colombia</p>
+
+        <div className="datos">
+          <div>
+            <img src="/img/icono_mail.png" alt="Email"/>
+            <span>info@allintravels.com</span>
+          </div>
+          <div>
+            <img src="/img/icono_telefono.png" alt="Teléfono"/>
+            <span>+0057 (604) 444 45 83</span>
+          </div>
+          <div>
+            <img src="/img/icono_ubicacion.png" alt="Ubicación"/>
+            <span>
+              Carrera 43A # 18 Sur - 135 Of 834, Sao Paulo Plaza Medellín - Colombia.
+            </span>
+          </div>
         </div>
       </footer>
+
     </>
   );
 }
