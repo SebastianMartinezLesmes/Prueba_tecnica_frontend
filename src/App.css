@@ -296,7 +296,6 @@ header div a:hover {
     letter-spacing: 8px;
   }
 }
-
 .blogs-container {
   display: grid;
   grid-template-columns: 1fr 1fr; 
@@ -305,7 +304,6 @@ header div a:hover {
   max-width: 900px;
   margin: 0 auto;
 }
-
 .blog-item {
   background-color: white;
   border-radius: 15px;
@@ -335,11 +333,126 @@ header div a:hover {
     margin-top: 10px;
   }
 }
-
 .large {
   grid-row: span 2; /* Ocupa dos filas */
 }
 
 /* Diseña tu viaje */
+.formulario {
+  background: #e5e5e5;
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+h2 {
+  color: #a97c3a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+.group-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  text-align: left;
+  margin-bottom: 15px;
+  color: black;
+}
+label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+select,
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.experiencia-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.experiencia-buttons button {
+  flex: 30%;
+  padding: 10px;
+  border: none;
+  background: #e0e0e0;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.experiencia-buttons button:hover {
+  background: #a97c3a;
+  color: white;
+}
+.viaje-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  label{
+    display: flex;
+    flex-direction: row;
+    input{
+      margin-left: 10px;
+      width: 80%;
+    }
+  }
+}
+.viaje-info input {
+  width: 45%;
+}
+.pasajeros {
+  display: flex;
+  justify-content: space-between;
+}
+.pasajeros select {
+  width: 45%;
+}
+.textarea-group textarea {
+  height: 80px;
+  resize: none;
+}
+.btn-enviar {
+  width: 100%;
+  background: #a97c3a;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-enviar:hover {
+  background: #ee8f31;
+}
+
 /* Alianzas estrategicas */
 /* footer */
