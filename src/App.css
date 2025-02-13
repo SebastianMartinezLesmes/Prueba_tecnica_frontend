@@ -1,4 +1,6 @@
 /* Estilos generales */
+/* color: #b88340; Color dorado */
+
 * {
   margin: 0;
   padding: 0;
@@ -108,20 +110,20 @@ header div a:hover {
   padding: 50px;
   max-width: 100%;
   margin: 0 auto;
-}
-#nosotros h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: orange;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-}
-#nosotros p {
-  font-size: 1.6rem;
-  color: #333;
-  text-align: justify;
-  margin-bottom: 30px;
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: orange;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 1.3rem;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 30px;
+  }
 }
 #galeria {
   display: flex;
@@ -129,7 +131,7 @@ header div a:hover {
   overflow-x: auto; 
   padding: 10px;
   img {
-    width: 45%;
+    width: 30%;
     height: auto;
     border-radius: 10px;
   }
@@ -329,7 +331,7 @@ header div a:hover {
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
-    color: #b88340; /* Color dorado */
+    color: #b88340; 
     margin-top: 10px;
   }
 }
@@ -345,24 +347,24 @@ header div a:hover {
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
-}
-h2 {
-  color: #a97c3a;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-h3 {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-}
-p {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 20px;
+  h2 {
+    color: #a97c3a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000000;
+  }
+  p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
 }
 .group-inputs {
   display: flex;
@@ -390,28 +392,34 @@ textarea {
   border-radius: 5px;
   font-size: 0.9rem;
 }
+.experiencias_2{
+  margin-top: 5%;
+}
 .experiencia-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
-}
-.experiencia-buttons button {
-  flex: 30%;
-  padding: 10px;
-  border: none;
-  background: #e0e0e0;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: 0.3s;
+  button {
+    flex: 30%;
+    padding: 10px;
+    background: #e0e0e0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+  }
 }
 .experiencia-buttons button:hover {
   background: #a97c3a;
   color: white;
 }
 .viaje-info {
+  margin: 5% 5%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -423,20 +431,29 @@ textarea {
       width: 80%;
     }
   }
-}
-.viaje-info input {
-  width: 45%;
+  input {
+    width: 45%;
+  }
 }
 .pasajeros {
+  margin: 5% 5%;
   display: flex;
   justify-content: space-between;
+  label{
+    margin: 0.5% 2% 0 2%;
+  }
+  select {
+    width: 45%;
+  }
 }
-.pasajeros select {
-  width: 45%;
-}
-.textarea-group textarea {
-  height: 80px;
-  resize: none;
+.textarea-group{
+  margin: 3% 3%;
+
+  textarea {
+    margin: 1% 1%;
+    height: 80px;
+    resize: none;
+  }
 }
 .btn-enviar {
   width: 100%;
@@ -455,4 +472,105 @@ textarea {
 }
 
 /* Alianzas estrategicas */
+.alianzas-container {
+  background: #f1f1f1;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  h2 {
+    color: #a97c3a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+}
+.alianzas-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  img {
+    max-height: 50px;
+    transition: filter 0.3s ease-in-out;
+  }
+}
+.whatsapp-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  img {
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  img:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* inscripcion */
+.newsletter-container {
+  background: #192038; 
+  color: white;
+  padding: 30px;
+  text-align: center;
+  p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  input {
+    width: 75%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+  }
+  button {
+    background: #c19248; 
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: #a97c3a;
+  }
+}
+
 /* footer */
+.footer{
+  padding: 2%;
+  display: flex;
+  justify-content: space-evenly;
+  .footer_logos{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    .redes{
+      margin-top: 10%;
+    }
+  }
+  .datos{
+    div{
+      margin: 4%;
+      img{
+        margin-right: 2%;
+        width: 4%;
+      }
+    }
+  }
+}
