@@ -15,7 +15,13 @@ function App() {
   const [partners, setPartners] = useState([]);
 
   useEffect(() => {
-    fetchCompanies();
+    getCompanies();
+    getBanners();
+    getCategories();
+    getTravels();
+    getCustomerExperiences();
+    getBlogs();
+
     mostrarAPIS();
   }, [companies]);  
 
@@ -25,16 +31,75 @@ function App() {
     }
   }, [companies]);
 
+  // mostar datos
   async function mostrarAPIS(){
-    console.log('Companies: \n'+companies[0]);
+    console.log('Companies: \n'+companies);
+    console.log('Banners: \n'+banners);
+    console.log('Categories: \n'+categories);
+    console.log('Travels: \n'+travels);
+    console.log('Experiences: \n'+experiences);
+    console.log('Blogs: \n'+blogs);
+    console.log('Tags: \n'+tags);
+    console.log('Partners: \n'+partners);
   }
 
-  async function fetchCompanies(){
+  // consumo api's
+  async function getCompanies(){
     try {
       const response = await fetch(url_base+"/api/get-companies/");
       const data = await response.json();
       setCompanies(data);
-      console.log(companies)
+      // console.log(companies)
+    } catch (error) {
+      console.error("Error al obtener las compañías:", error);
+    }
+  };
+  async function getBanners(){
+    try {
+      const response = await fetch(url_base+"/api/get-banners/");
+      const data = await response.json();
+      setBanners(data);
+      // console.log(banners)
+    } catch (error) {
+      console.error("Error al obtener las compañías:", error);
+    }
+  };
+  async function getCategories(){
+    try {
+      const response = await fetch(url_base+"/api/get-categories/");
+      const data = await response.json();
+      setCategories(data);
+      // console.log(categories)
+    } catch (error) {
+      console.error("Error al obtener las compañías:", error);
+    }
+  };
+  async function getTravels(){
+    try {
+      const response = await fetch(url_base+"/api/get-travels/");
+      const data = await response.json();
+      setTravels(data);
+      // console.log(travels)
+    } catch (error) {
+      console.error("Error al obtener las compañías:", error);
+    }
+  };
+  async function getCustomerExperiences(){
+    try {
+      const response = await fetch(url_base+"/api/get-customer_experiences/");
+      const data = await response.json();
+      setExperiences(data);
+      // console.log(experiences)
+    } catch (error) {
+      console.error("Error al obtener las compañías:", error);
+    }
+  };
+  async function getBlogs(){
+    try {
+      const response = await fetch(url_base+"/api/get-blogs/");
+      const data = await response.json();
+      setBlogs(data);
+      console.log(blogs)
     } catch (error) {
       console.error("Error al obtener las compañías:", error);
     }
@@ -43,38 +108,44 @@ function App() {
   return (
     <>
       <section id="header">
-        <img src="/img/header.png" alt="header" />
-        <header>
-          <img src="/img/logo.png" alt="logo" />
-          <div>
-            <a href="#">Inicio</a>
-            <a href="#">Noticias</a>
-            <a href="#">Viajes</a>
-            <a href="#">Blogs</a>
-            <a href="#">Contacto</a>
-          </div>
-        </header>
-        <div>
-          <h1>THE TRAVEL</h1>
-          <p>EXPERIENCE</p>
-          <div>
-            <img src="/img/viajes_grupales.png" alt="viajes grupales" hover='viajes grupales'/>
-            <img src="/img/viajes_a_la_medida.png" alt="viajes a la medida" />
-            <img src="/img/destinos_para_parejas.png" alt="destinos para parejas" />
-          </div>
-          <div>
-            <span>viajes grupales</span>
-            <span>viajes a la medida</span>
-            <span>viajes a la medida</span>
-          </div>
-        </div>
+        {banners.length > 0 && (
+          <>
+            <img src={banners[0].image} alt="header" />
+            <header>
+            {companies.map((companie, index) => (
+              <img src={companie.logo} alt="logo" />
+            ))}
+              <div>
+                <a href="#">Inicio</a>
+                <a href="#">Noticias</a>
+                <a href="#">Viajes</a>
+                <a href="#">Blogs</a>
+                <a href="#">Contacto</a>
+              </div>
+            </header>
+            <div>
+              <h1>{banners[0].title}</h1>
+              <p>EXPERIENCE</p>
+              <div>
+                {categories.map((category, index) => (
+                  <img key={index} src={category.image_banner} alt={category.name} />
+                ))}
+              </div>
+              <div>
+                {categories.map((category, index) => (
+                  <span key={index}>{category.name}</span>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </section>
 
       <section id='nosotros'> 
         {companies.length > 0 && (
           <section id="nosotros">
             <h1>Nosotros</h1>
-            <p>{companies[0].description}</p> {/* ✅ Descripción dinámica */}
+            <p>{companies[0].description}</p>
 
             <div id="galeria">
               {companies[0].feed_instagram.map((item) => (
@@ -92,71 +163,72 @@ function App() {
         <div className="carousel">
           <button className="prev">&#10094;</button>
           <div className="cards">
-            <div className="card">
-              <img src="/img/exp_grupales_1.png" alt="Safari"></img>
-              <span className="tag gold">¡Últimos cupos!</span>
-              <h2>Safari (África)</h2>
-              <p>5 al 15 de abril | Desde 5,500 USD</p>
-              <p>Serengeti, viaje en globo, hotel todo incluido 4 estrellas. Vive la experiencia de conocer a los reyes de la sabana africana.</p>
-              <button><a href='*'>Más Información</a></button>
-            </div>
-            <div className="card">
-              <img src="/img/exp_grupales_2.png" alt="Japón"></img>
-              <span className="tag red">Agotado</span>
-              <h2>Japón: Tradición y Modernidad</h2>
-              <p>30/04 - 11/05 | Desde 2,700 USD</p>
-              <p>Tokio, Monte Fuji y Kamakura. Conoce la cultura que combina la tradición y la tecnología.</p>
-              <button><a href='*'>Más Información</a></button>
-            </div>
-            <div className="card">
-              <img src="/img/exp_grupales_3.png" alt="Egipto"></img>
-              <span className="tag green">Cupos Disponibles</span>
-              <h2>Egipto: Místico y Majestuoso</h2>
-              <p>01 al 08 de abril | Desde 4,200 USD</p>
-              <p>El Cairo, Pirámides, Valle de los Muertos y viaje por el Nilo. Descubre una de las civilizaciones más antiguas del mundo.</p>
-              <button><a href='*'>Más Información</a></button>
-            </div>
+            {travels.map((travel, index) => (
+              <div key={index} className="card">
+                <img src={travel.image_cover} alt={travel.title} />
+                <span className="tag" style={{ backgroundColor: travel.status.color }}>
+                  {travel.status.title}
+                </span>
+                <h2>{travel.title}</h2>
+                <p>
+                  {new Date(travel.date_start).toLocaleDateString("es-ES", {
+                    day: "2-digit",
+                    month: "long",
+                  })}{" "}
+                  -{" "}
+                  {new Date(travel.date_end).toLocaleDateString("es-ES", {
+                    day: "2-digit",
+                    month: "long",
+                  })}{" "}
+                  | Desde {travel.cost.toLocaleString("en-US")} USD
+                </p>
+                <p>{travel.description}</p>
+                <button>
+                  <a href={travel.url_front}>Más Información</a>
+                </button>
+              </div>
+            ))}
           </div>
           <button className="next">&#10095;</button>
         </div>
       </section>
 
       <section className="experiencias-personalizadas">
-        <h1>EXPERIENCIAS PERSONALIZADAS</h1>
-        <div className="contenedor">
-          <img src="/img/exp_personalizadas.png" alt="Experiencia personalizada"/>
-          <div className="info">
-            <h2>¿QUÉ NOS HACE DIFERENTES?</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh 
-              euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad 
-              minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut 
-              aliquip ex ea commodo consequat.
-            </p>
-            <button>COTIZAR MI VIAJE</button>
-          </div>
-        </div>
+        {experiences.length > 0 && (
+          <>
+            <h1>{experiences[0].title}</h1>
+            <div className="contenedor">
+              <img src={experiences[0].image} alt="Experiencia personalizada" />
+              <div className="info">
+                <h2>{experiences[0].description}</h2>
+                <p>{experiences[0].diference_description}</p>
+                <button>COTIZAR MI VIAJE</button>
+              </div>
+            </div>
+          </>
+        )}
       </section>
 
       <section className="blogs">
         <h2>BLOGS</h2>
         <div className="blogs-container">
-          <div className="blog-item large">
-            <img src="/img/exp_personalizadas.png" alt="Imagen Blog 1"/>
-            <h3>DESTINOS PARA PAREJAS EN 2025</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam...</p>
-            <a href="#">LEER MÁS</a>
-          </div>
-          <div className="blog-item">
-            <img src="/img/blogs_2.png" alt="Imagen Blog 2"/>
-            <h3>VUELVE LA VISA PARA VIAJAR A LONDRES</h3>
-            <a href="#">LEER MÁS</a>
-          </div>
-          <div className="blog-item">
-            <img src="/img/blogs_3.png" alt="Imagen Blog 3"/>
-            <h3>TOP 3 DESTINOS EN COLOMBIA</h3>
-            <a href="#">LEER MÁS</a>
-          </div>
+          {blogs.length > 0 && (
+            <>
+              <div className="blog-item large">
+                <img src={blogs[0].image_cover} alt="Imagen Blog 1" />
+                <h3>{blogs[0].title}</h3>
+                <p>{blogs[0].description.substring(0, 120)}...</p>
+                <a href={blogs[0].url_front}>LEER MÁS</a>
+              </div>
+              {blogs.slice(1, 3).map((blog, index) => (
+                <div key={index} className="blog-item">
+                  <img src={blog.image_content} alt={`Imagen Blog ${index + 2}`} />
+                  <h3>{blog.title}</h3>
+                  <a href={blog.url_front}>LEER MÁS</a>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </section>
 
@@ -253,7 +325,9 @@ function App() {
 
       <footer className="footer">
         <div className="footer_logos">
-          <img src="/img/logo.png" alt="All In Travels" />
+          {companies.map((companie, index) => (
+            <img src={companie.logo} alt="logo" />
+          ))}
           <img src="/img/logos_redes.png" alt="Facebook" className="redes" />
         </div>
 
