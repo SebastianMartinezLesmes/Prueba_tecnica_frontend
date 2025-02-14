@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   
   const url_base = "https://api.test.interactiva.net.co";
-  // Estados para almacenar datos de la API
+  // Espacio para almacenar datos de la API
   const [companies, setCompanies] = useState([]);
   const [banners, setBanners] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -13,6 +13,16 @@ function App() {
   const [blogs, setBlogs] = useState([]);
   const [tags, setTags] = useState([]);
   const [partners, setPartners] = useState([]);
+  
+  // Espacio para almacenar datos de los formularios
+  const [travel, setTravel] = useState("");
+  const [taggs, setTaggs] = useState("");
+  const [dateStart, setDateStart] = useState("");
+  const [dateEnd, setDateEnd] = useState("");
+  const [numberChildren, setNumberChildren] = useState(0);
+  const [numberAdults, setNumberAdults] = useState(1);
+  const [description, setDescription] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     getCompanies();
@@ -24,14 +34,8 @@ function App() {
     getTags();
     getPartners();
 
-    mostrarAPIS();
+    // mostrarAPIS(); muestra los datos de las apis
   }, [companies]);  
-
-  useEffect(() => {
-    if (companies.length > 0) {
-      mostrarAPIS();
-    }
-  }, [companies]);
 
   // mostar datos
   async function mostrarAPIS(){
@@ -45,7 +49,7 @@ function App() {
     console.log('Partners: \n'+partners);
   }
 
-  // consumo api's GET
+  // consumo API's GET
   async function getCompanies(){
     try {
       const response = await fetch(url_base+"/api/get-companies/");
@@ -121,9 +125,75 @@ function App() {
       const response = await fetch(url_base+"/api/get-partners/");
       const data = await response.json();
       setPartners(data);
-      console.log(partners)
+      // console.log(partners)
     } catch (error) {
       console.error("Error al obtener las compañías:", error);
+    }
+  };
+
+  // uso de API POST
+  async function postQuotations(event) {
+    event.preventDefault();
+    if (!travel || taggs.length === 0 || !dateStart || !dateEnd || !description) {
+      alert("Por favor, completa todos los campos obligatorios.");
+      return;
+    }
+    const requestData = {
+      travel: parseInt(travel), 
+      tags: parseInt(taggs), 
+      date_start: dateStart,
+      date_end: dateEnd,
+      number_children: parseInt(numberChildren),
+      number_adults: parseInt(numberAdults),
+      description,
+    }; 
+    // alert("Datos enviados:\n" + JSON.stringify(requestData, null, 2)); Mostrar datos en un alert antes de enviar
+    try {
+      const response = await fetch(url_base + "/api/set-quotations/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+      const responseData = await response.json(); 
+      alert(`Estado: ${response.status}\n${responseData.message || "Solicitud completada."}`);
+      if (response.ok) {
+        setTravel("");
+        setTaggs("");  
+        setDateStart("");
+        setDateEnd("");
+        setNumberChildren(0);
+        setNumberAdults(1);
+        setDescription("");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+      alert("Ocurrió un error inesperado, intenta nuevamente.");
+    }
+  };
+  async function postNewsletter() {
+    if (!email) {
+      alert("Por favor, ingresa un correo válido.");
+      return;
+    }
+    try {
+      const response = await fetch(url_base+"/api/set-newsletter/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      if (response.ok) {
+        alert("¡Suscripción exitosa! ✅");
+        setEmail(""); 
+      } else {
+        alert("Error en la suscripción ❌, código: " + response.status);
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+      alert("Ocurrió un error, intenta nuevamente.");
     }
   };
 
@@ -257,21 +327,31 @@ function App() {
       <section className="formulario">
         <h2>DISEÑA TU VIAJE</h2>
         <h3>AQUÍ COMIENZA TU EXPERIENCIA</h3>
-        <p>Una vez llenado este formulario, uno de nuestros planners travelers se pondrá en contacto contigo para perfeccionar ese viaje que tanto has soñado. Estamos aquí para brindarte la mejor experiencia.</p>
-    
-        <form className="form-container">
+        <p>Una vez llenado este formulario, uno de nuestros planners travelers se pondrá en contacto contigo.</p>
+
+        <form className="form-container" onSubmit={postQuotations}>
           <div className='group-inputs'>
             <div className="input-group">
               <label>¿CUÁL ES EL DESTINO QUE QUIERES VISITAR?</label>
-              <select>
-                <option>Selecciona un destino</option>
+              <select value={travel} onChange={(e) => setTravel(e.target.value)}>
+                <option value="">Selecciona un destino</option>
+                {travels.map((travel) => (
+                  <option key={travel.id} value={travel.id}>
+                    {travel.title}
+                  </option>
+                ))}
               </select>
             </div>
 
             <div className="input-group">
               <label>¿QUÉ OTRO DESTINO TIENES EN MENTE?</label>
-              <select>
-                <option>Selecciona un destino</option>
+              <select value={taggs} onChange={(e) => setTaggs(e.target.value)}>
+                <option value="">Selecciona un destino</option>
+                {tags.map((tag) => (
+                  <option key={tag.id} value={tag.id}>
+                    {tag.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -280,7 +360,7 @@ function App() {
             <label>¿QUÉ EXPERIENCIAS QUIERES VIVIR?</label>
             <div className="experiencia-buttons">
               {tags.map((tag) => (
-                <button key={tag.id} type="button">
+                <button key={tag.id} type="button" onClick={() => setTags([...tags, tag])}>
                   {tag.name}
                 </button>
               ))}
@@ -296,23 +376,27 @@ function App() {
             </label>
             </div>
             <label> IDA
-              <input type="date" placeholder="IDA"/>
+              <input type="date" value={dateStart} onChange={(e) => setDateStart(e.target.value)} />
             </label>
             <label> REGRESO
-              <input type="date" placeholder="REGRESO"/>
+              <input type="date" value={dateEnd} onChange={(e) => setDateEnd(e.target.value)} />
             </label>
           </div>
 
           <div className="pasajeros">
             <label>NIÑOS:</label>
-            <select><option>0</option></select>
+            <select value={numberChildren} onChange={(e) => setNumberChildren(e.target.value)}>
+              {[...Array(10).keys()].map(num => <option key={num} value={num}>{num}</option>)}
+            </select>
             <label>ADULTOS:</label>
-            <select><option>1</option></select>
+            <select value={numberAdults} onChange={(e) => setNumberAdults(e.target.value)}>
+              {[...Array(10).keys()].map(num => <option key={num} value={num + 1}>{num + 1}</option>)}
+            </select>
           </div>
 
           <div className="textarea-group">
             <label>TU VIAJE IDEAL...</label>
-            <textarea placeholder="Describe tu viaje ideal"></textarea>
+            <textarea placeholder="Describe tu viaje ideal" value={description} onChange={(e) => setDescription(e.target.value)} />
           </div>
 
           <button type="submit" className="btn-enviar">ENVIAR</button>
@@ -320,22 +404,22 @@ function App() {
       </section>
 
       <div className="alianzas-container">
-      <h2>ALIANZAS ESTRATÉGICAS</h2>
-      <div className="alianzas-logos">
-        {partners.map((partner) => (
-          <img key={partner.id} src={partner.logo} alt={`Partner ${partner.name}`}/>
-        ))}
+        <h2>ALIANZAS ESTRATÉGICAS</h2>
+        <div className="alianzas-logos">
+          {partners.map((partner) => (
+            <img key={partner.id} src={partner.logo} alt={`Partner ${partner.name}`}/>
+          ))}
+        </div>
+        <div className="whatsapp-icon">
+          <img src="/media/logo_WA.png" alt="WhatsApp"/>
+        </div>
       </div>
-      <div className="whatsapp-icon">
-        <img src="/media/logo_WA.png" alt="WhatsApp"/>
-      </div>
-    </div>
 
       <section className="newsletter-container">
         <p>Suscríbete a nuestro newsletter y recibe noticias, descuentos y más</p>
         <div className="newsletter-form">
-          <input type="email" placeholder="Correo electrónico" />
-          <button>SUSCRIBIRME</button>
+          <input type="email" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <button onClick={postNewsletter}>SUSCRIBIRME</button>
         </div>
       </section>
 
