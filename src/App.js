@@ -21,6 +21,8 @@ function App() {
     getTravels();
     getCustomerExperiences();
     getBlogs();
+    getTags();
+    getPartners();
 
     mostrarAPIS();
   }, [companies]);  
@@ -43,7 +45,7 @@ function App() {
     console.log('Partners: \n'+partners);
   }
 
-  // consumo api's
+  // consumo api's GET
   async function getCompanies(){
     try {
       const response = await fetch(url_base+"/api/get-companies/");
@@ -99,7 +101,27 @@ function App() {
       const response = await fetch(url_base+"/api/get-blogs/");
       const data = await response.json();
       setBlogs(data);
-      console.log(blogs)
+      // console.log(blogs)
+    } catch (error) {
+      console.error("Error al obtener las compañías:", error);
+    }
+  };
+  async function getTags(){
+    try {
+      const response = await fetch(url_base+"/api/get-tags/");
+      const data = await response.json();
+      setTags(data);
+      // console.log(tags)
+    } catch (error) {
+      console.error("Error al obtener las compañías:", error);
+    }
+  };
+  async function getPartners(){
+    try {
+      const response = await fetch(url_base+"/api/get-partners/");
+      const data = await response.json();
+      setPartners(data);
+      console.log(partners)
     } catch (error) {
       console.error("Error al obtener las compañías:", error);
     }
@@ -257,13 +279,11 @@ function App() {
           <div className="experiencias_2">
             <label>¿QUÉ EXPERIENCIAS QUIERES VIVIR?</label>
             <div className="experiencia-buttons">
-              <button type="button">SAFARI</button>
-              <button type="button">DEPORTE</button>
-              <button type="button">ARTE Y CULTURA</button>
-              <button type="button">DESCANSO</button>
-              <button type="button">ESPIRITUAL</button>
-              <button type="button">PLAYA</button>
-              <button type="button">NATURALEZA</button>
+              {tags.map((tag) => (
+                <button key={tag.id} type="button">
+                  {tag.name}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -300,20 +320,16 @@ function App() {
       </section>
 
       <div className="alianzas-container">
-        <h2>ALIANZAS ESTRATÉGICAS</h2>
-        <div className="alianzas-logos">
-          <img src="/img/logo7.png" alt="Avianca"/>
-          <img src="/img/logo6.png" alt="Expedia"/>
-          <img src="/img/logo5.png" alt="Uber"/>
-          <img src="/img/logo4.png" alt="LifeMiles"/>
-          <img src="/img/logo3.png" alt="Bancolombia"/>
-          <img src="/img/logo1.png" alt="RIU"/>
-          <img src="/img/logo2.png" alt="Royal Caribbean"/>
-        </div>
-        <div className="whatsapp-icon">
-          <img src="/img/logo_WA.png" alt="WhatsApp"/>
-        </div>
+      <h2>ALIANZAS ESTRATÉGICAS</h2>
+      <div className="alianzas-logos">
+        {partners.map((partner) => (
+          <img key={partner.id} src={partner.logo} alt={`Partner ${partner.name}`}/>
+        ))}
       </div>
+      <div className="whatsapp-icon">
+        <img src="/media/logo_WA.png" alt="WhatsApp"/>
+      </div>
+    </div>
 
       <section className="newsletter-container">
         <p>Suscríbete a nuestro newsletter y recibe noticias, descuentos y más</p>
@@ -328,7 +344,7 @@ function App() {
           {companies.map((companie, index) => (
             <img src={companie.logo} alt="logo" />
           ))}
-          <img src="/img/logos_redes.png" alt="Facebook" className="redes" />
+          <img src="/media/logos_redes.png" alt="Facebook" className="redes" />
         </div>
 
         <div>
@@ -348,15 +364,15 @@ function App() {
 
         <div className="datos">
           <div>
-            <img src="/img/icono_mail.png" alt="Email"/>
+            <img src="/media/icono_mail.png" alt="Email"/>
             <span>info@allintravels.com</span>
           </div>
           <div>
-            <img src="/img/icono_telefono.png" alt="Teléfono"/>
+            <img src="/media/icono_telefono.png" alt="Teléfono"/>
             <span>+0057 (604) 444 45 83</span>
           </div>
           <div>
-            <img src="/img/icono_ubicacion.png" alt="Ubicación"/>
+            <img src="/media/icono_ubicacion.png" alt="Ubicación"/>
             <span>
               Carrera 43A # 18 Sur - 135 Of 834, Sao Paulo Plaza Medellín - Colombia.
             </span>
