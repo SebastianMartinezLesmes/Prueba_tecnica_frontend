@@ -1,74 +1,96 @@
-# Getting Started with Create React App
+# Proyecto React - Consumo de API y Formulario de Cotización de Viajes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es una aplicación desarrollada en React que consume diversas APIs para obtener información de empresas, banners, categorías, viajes, experiencias, blogs, etiquetas y socios estratégicos. Además, permite a los usuarios enviar cotizaciones y suscribirse a un boletín informativo.
 
-## Available Scripts
+## Características Principales
 
-In the project directory, you can run:
+- **Consumo de API REST:** Se realizan solicitudes GET y POST a una API externa.
+- **Gestión de Estados:** Se utiliza el hook `useState` para manejar la información.
+- **Efectos Secundarios:** Se emplea `useEffect` para ejecutar llamadas a la API al cargar la aplicación.
+- **Formulario Interactivo:** Permite a los usuarios diseñar su propio viaje con validaciones y envío de datos.
+- **Carrusel de Experiencias:** Muestra viajes y experiencias en un formato visual atractivo.
+- **Integración con Redes Sociales:** Se visualizan imágenes desde un feed de Instagram.
 
-### `npm i`
+## Instalación y Ejecución
 
-Used for install the dependencies of proyect
+### Prerrequisitos
 
-### `npm start`
+Asegúrate de tener instalado Git, Node.js y npm antes de ejecutar la aplicación.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Pasos de Instalación
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clonar el repositorio:
+   ```sh
+   git clone https://github.com/SebastianMartinezLesmes/Prueba_tecnica_frontend.git
+   cd repo
+   ```
+2. Instalar dependencias:
+   ```sh
+   npm install
+   ```
+3. Ejecutar la aplicación:
+   ```sh
+   npm start
+   ```
 
-### `npm test`
+La aplicación se ejecutará en `http://localhost:3000/` por defecto.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estructura del Código
 
-### `npm run build`
+El componente principal `App.js` se encarga de:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Definir los estados de la aplicación.
+- Realizar las llamadas a la API.
+- Renderizar la información obtenida.
+- Gestionar eventos de formularios.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Hooks Principales
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **`useState`**: Manejo de estados como `companies`, `banners`, `travels`, `categories`, entre otros.
+- **`useEffect`**: Llamadas a la API al montar el componente.
 
-### `npm run eject`
+### Funciones de API
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **GET Requests:**
+  - `getCompanies()`
+  - `getBanners()`
+  - `getCategories()`
+  - `getTravels()`
+  - `getCustomerExperiences()`
+  - `getBlogs()`
+  - `getTags()`
+  - `getPartners()`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **POST Requests:**
+  - `postQuotations(event)`: Envía información del formulario de cotización.
+  - `postNewsletter()`: Permite la suscripción a un boletín informativo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Uso de la Aplicación
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Secciones Destacadas
 
-## Learn More
+1. **Encabezado:** Muestra la imagen principal y el logo de la empresa.
+2. **Nosotros:** Información sobre la empresa y galería de imágenes.
+3. **Experiencias Grupales:** Listado de viajes y su información.
+4. **Formulario de Cotización:** Permite a los usuarios personalizar su viaje.
+5. **Blogs:** Últimas noticias y artículos.
+6. **Alianzas Estratégicas:** Empresas asociadas con la plataforma.
+7. **Newsletter:** Formulario de suscripción por correo electrónico.
+8. **Pie de Página:** Información de contacto y enlaces.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tecnologías Utilizadas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **React.js**
+- **CSS** (Diseño y estilos visuales)
+- **Fetch API** (Consumo de APIs REST)
 
-### Code Splitting
+## Mejoras Futuras
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Implementación de `useContext` para una mejor gestión del estado global.
+- Optimización de las llamadas a la API para reducir solicitudes innecesarias.
+- Integración con una base de datos para almacenamiento persistente.
 
-### Analyzing the Bundle Size
+## Contacto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Si tienes preguntas o deseas contribuir, puedes contactarme en [Email](20rasputin03@gmail.com).
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
