@@ -92,5 +92,5 @@ El componente principal `App.js` se encarga de:
 
 ## Contacto
 
-Si tienes preguntas o deseas contribuir, puedes contactarme en [tu_email@example.com](20rasputin03@gmail.com).
+Si tienes preguntas o deseas contribuir, puedes contactarme en [Email](20rasputin03@gmail.com).
 
